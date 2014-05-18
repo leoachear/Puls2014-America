@@ -144,10 +144,11 @@ header #logo img
 	margin-right: 0.5em;
 	padding-right: 0.5em;
 	width: 52px;
-	-webkit-transition: 0.5s;
+	/*-webkit-transition: 0.5s;*/ /* Si paso la transición acá, gira cuando me paro con el mouse y cuando salgo vuelve a su estado */
 }
 header #logo img:hover
 {
+	-webkit-transition: 0.5s; /* Si paso la transición acá, gira cuando me paro con el mouse pero cuando salgo no */
 	-webkit-transform: rotate(360deg);
 }
 nav
