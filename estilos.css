@@ -287,7 +287,17 @@ nav ul li a:hover
 {
 	float: right;
 }
-
+/* Clase 3: Preguntas y respuestas
+	Esto es para alinear verticalmente el texto de una etiqueta <a> 
+.leo
+{
+	background: red;
+	display: block;
+	height: 100px;
+	line-height: 100px;
+	text-align: center;
+}
+*/
 /**************************************** MEDIA QUERIES *****************************************************/
 /*@media print{  /*esto se aplica para cuando voy a imprimir /
 	body{
