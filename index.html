@@ -31,6 +31,17 @@
 			</li>
 		</ul>
 	</nav>
+	<form action="" id="formulario" class="formulario">
+		<!-- Esta es una forma de hacerlo
+		<label for="titulo">Título:</label>
+		<input type="text" id="titulo" required />
+		<label for="link">Link:</label> Como los relaciono con el id y el for, cuando hago clic en un label me lleva al input correspondiente
+		<input type="url" id="link" required /> -->
+		<!-- Esta es la forma que lo hace en el curso y que se hace ahora, para simplificar los formularios -->
+		<input type="text" placeholder="Título" id="titulo" required />
+		<input type="url" placeholder="Link" id="link" required />
+		<input type="submit" value="Agregar" />
+	</form>
 	<aside>
 		<video width="320" height="240" controls > <!-- autoplay (se puede poner como propiedad) no sirve para moviles -->
 			<source src="lecturas.mp4" type="video/mp4">
