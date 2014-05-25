@@ -12,23 +12,26 @@ function mostrarOcultarFormulario(){
 function agregarPost(){
 	var titulo = $titulo.val(),
 		url = $url.val(),
-		clone = $primerPost.clone();
+		$clone = $primerPost.clone();
 
 	clone.find('.titulo_item a')
 		.text(titulo)
-		.attr('href',url)
+		.attr('href',url);
 		
-	clone.hide()
+	$clone.hide(); //esto lo hago para ocultar el post, más abajo agregarlo y despues mostrarlo.
 
-	$lista.prepend(clone)
+	$lista.prepend(clone);
 
 	// este no se ve porque el primer <article> tiene el attributo de CSS min-height: 128px;
 	// sacándole este atributo desde CSS funciona.  Este es uno de los atributos que no se puede tocar mucho con JavaScript.
-	clone.slideDown()
+	$clone.slideDown();
+	//$clone.fadeIn(); //este es otro efecto.
+
+	return false; //esto sirve para que no recargue la página, las funciones que están escuchando "mas arriba" van a recibir false.
 
 	// Esta instrucción la detecta la consola, y se frema acá cuando se esté ejecutando
 	// debugger;
 }
 
 $('#publicar_nav a').click(mostrarOcultarFormulario);
-$('#formulario').on('submit',agregarPost)
+$form.on('submit',agregarPost)
