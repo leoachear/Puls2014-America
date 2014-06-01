@@ -14,13 +14,13 @@ function agregarPost(){
 		url = $url.val(),
 		$clone = $primerPost.clone();
 
-	clone.find('.titulo_item a')
+	$clone.find('.titulo_item a')
 		.text(titulo)
 		.attr('href',url);
 		
 	$clone.hide(); //esto lo hago para ocultar el post, más abajo agregarlo y despues mostrarlo.
-
-	$lista.prepend(clone);
+	
+	$lista.prepend($clone);
 
 	// este no se ve porque el primer <article> tiene el attributo de CSS min-height: 128px;
 	// sacándole este atributo desde CSS funciona.  Este es uno de los atributos que no se puede tocar mucho con JavaScript.
