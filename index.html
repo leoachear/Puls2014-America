@@ -5,7 +5,8 @@
 	<meta name="description" content="Protecto de la primera generación del 2014 del curso de diseño web online" />
 	<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1" /> <!-- con esto hago que no tenga zoom y quede en un tamaño fijo -->
 	<title>Puls2014: Comunidad online de gente atractiva</title>
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+<!-- Esta fuente es mejor ponerla en el CSS
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'> -->
 	<link rel="stylesheet" href="normalize.css" />
 	<link rel="stylesheet" href="estilos.css" />
 </head>
@@ -208,5 +209,14 @@
 	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 	<!-- Cargo primero jquery y después el js que quiero generar para poder tener instanciado primero jQuery al momento de hacer mi script -->
 	<script src="formulario.js"></script>
+	<script>
+		window.onload = function (){
+			console.log('Ya se disparó el evento onLoad');
+		}
+
+		$(function(){
+			console.log('Ya se disparó el evento DOMContentLoaded');
+		});
+	</script>
 </body>
 </html>
