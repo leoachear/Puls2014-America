@@ -17,7 +17,7 @@
 		</figure>
 		<h1>Puls2014: Comunidad de personas atractivas y millonarias</h1>
 		<figure id="avatar">
-			<img src="avatar.jpg" title="Este es el avatar" alt="avatar" />
+			<!-- <img src="avatar.jpg" title="Este es el avatar" alt="avatar" /> -->
 		</figure>
 	</header>
 	<nav>
@@ -47,6 +47,8 @@
 		Esto es para alinear verticalmente el texto de una etiqueta <a> 
 	<a href="#" class="leo">@LeonidasEsteban</a> -->
 	<aside>
+		<div id="clima"></div>
+		<div id="geo"></div>
 		<video width="320" height="240" controls > <!-- autoplay (se puede poner como propiedad) no sirve para moviles -->
 			<source src="lecturas.mp4" type="video/mp4">
 			<source src="lecturas.ogg" type="video/ogg">
@@ -209,13 +211,44 @@
 	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 	<!-- Cargo primero jquery y después el js que quiero generar para poder tener instanciado primero jQuery al momento de hacer mi script -->
 	<script src="formulario.js"></script>
-	<script>
+<!--	<script>
 		window.onload = function (){
 			console.log('Ya se disparó el evento onLoad');
 		}
 
 		$(function(){
 			console.log('Ya se disparó el evento DOMContentLoaded');
+		});
+	</script>-->
+	<script src="ajax.js"></script>
+	<script>
+		$(function(){
+			var geo = navigator.geolocation;
+
+			function geo_exito(position){
+				var lat = position.coords.latitude;
+				var lon = position.coords.longitude;
+
+				var mapa = new Image();
+				mapa.src = "http://maps.googleapis.com/maps/api/staticmap?center="+lat+","+lon+"&zoom=12&size=200x200&sensor=false";
+
+				$('#geo').append(mapa);
+
+				obtenerGeoInformacion(lat, lon);
+			}
+
+			function geo_error(){
+				cosole.log("Hhhmmm...esto es incómodo, no se donde estás.");
+			}
+
+			geo.getCurrentPosition(geo_exito, geo_error, {
+				enableHighAccuracy: true,
+				timeout: 5000,
+				maximumAge:0
+			});
+
+			loadLogos();
+			loadUser();
 		});
 	</script>
 </body>
